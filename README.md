@@ -49,23 +49,42 @@ Figure -02 HALF Subtractor
 
 
 **Program:**
+Half adder
 ```
-module ex4 (a,b,c,x,y,z,sum,dif,car,bor);
-input a,b,c,x,y,z;
-output sum,dif,car,bor;
-assign sum = a^b^c;
-assign car = a&b | a&c | b&c;
-assign dif = x^y^z;
-assign bor = ~x&z | ~x&y | y&z;
+module exp3 (
+    input  wire a, b,     
+    output wire sum,     
+    output wire carry    
+);
+
+    
+    assign sum   = a ^ b;   
+    assign carry = a & b;   
+    endmodule
+```
+Half subtractor
+```
+module half_subtractor (
+    input  wire a, b,         // Inputs
+    output wire diff, borrow  // Outputs
+);
+
+    // Logic equations
+    assign diff   = a ^ b;     // XOR for difference
+    assign borrow = ~a & b;    // Borrow when a < b
+
 endmodule
 ```
 **RTL Schematic**
-![alt text](<Screenshot (73).png>)
+<img width="1920" height="1080" alt="Screenshot (93)" src="https://github.com/user-attachments/assets/d809cf62-6dd2-4c24-8259-05978b90896c" />
+<img width="1920" height="1080" alt="Screenshot (95)" src="https://github.com/user-attachments/assets/d4a021a1-63f6-40dd-bd66-b8c2407c36ba" />
 
 
 
 **Output/TIMING Waveform**
-![alt text](<Screenshot (74).png>)
+<img width="1920" height="1080" alt="Screenshot (94)" src="https://github.com/user-attachments/assets/b41bfd0a-e347-4e82-84b3-82e7c3a4580c" />
+<img width="1920" height="1080" alt="Screenshot (96)" src="https://github.com/user-attachments/assets/39ba29ac-1623-4840-a23c-50f4cb41a8f5" />
+
 
 
 **Result:**
